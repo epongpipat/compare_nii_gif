@@ -1,6 +1,6 @@
 # compare_nii_gif
 
-Create a gif that compares nifti files in axial, sagittal, and coronal views
+Create a gif that compares nifti files in axial, sagittal, and coronal views. 
 
 ## Install
 
@@ -14,6 +14,9 @@ compare_nii_gif -i <in_path1> <in_path2> -o <out_path>
 ```
 
 ## Example
+
+An example comparing my raw versus brain extracted T1w image.
+
 ```
 compare_nii_gif -i T1w_raw.nii.gz T1w_bet.nii.gz -o example.gif --titles raw bet
 ```
