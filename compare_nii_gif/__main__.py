@@ -4,7 +4,7 @@ from compare_nii_gif import core, __version__
 
 def main():
     print('compare_nii_gif v' + __version__ + '\n')
-    parser = argparse.ArgumentParser(description = '')
+    parser = argparse.ArgumentParser(description = 'Create a gif that compares nifti files in axial, sagittal, and coronal views')
     parser.add_argument("-i", "--in_paths",
         nargs = '*',
         action = 'append',
