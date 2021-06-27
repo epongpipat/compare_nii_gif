@@ -24,13 +24,37 @@ def main():
         default = 1,
         help = "optional. specify speed of switching between files in frames per second. (Default: 1)",
         required = False)
-
+    parser.add_argument("-x", "--x_coords",
+        nargs = '*',
+        action = 'append',
+        default = [[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50]],
+        type = int,
+        help = "optional. specify coordinates to display in the x-direction. (Default: -50 -40 -30 -20 -10 0 10 20 30 40 50)",
+        required = False)
+    parser.add_argument("-y", "--y_coords",
+        nargs = '*',
+        action = 'append',
+        default = [[-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]],
+        type = int,
+        help = "optional. specify coordinates to display in the y-direction. (Default: -60 -50-40 -30 -20 -10 0 10 20 30 40 50 60)",
+        required = False)
+    parser.add_argument("-z", "--z_coords",
+        nargs = '*',
+        action = 'append',
+        default = [[-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]],
+        type = int,
+        help = "optional. specify coordinates to display in the z-direction. (Default: -60 -50 -40 -30 -20 -10 0 10 20 30 40 50 60)",
+        required = False)
     args = parser.parse_args()
 
-    #print(args.in_paths.dim)
     args.in_paths = args.in_paths[0]
     if args.titles != None:
         args.titles = args.titles[0]
+
+    args.x_coords = args.x_coords[0]
+    args.y_coords = args.y_coords[0]
+    args.z_coords = args.z_coords[0]
+    #print(args.z_coords)
 
     print('images to compare:')
     for i in range(len(args.in_paths)):
@@ -39,7 +63,7 @@ def main():
         else:
             print(str(i + 1) + '. ' + args.titles[i] + ': ' + args.in_paths[i])
 
-    core.compare_nii_gif(args.in_paths, args.out_path, args.titles, args.frames_per_sec)
+    core.compare_nii_gif(paths = args.in_paths, out_path = args.out_path, titles = args.titles, frames_per_sec = args.frames_per_sec, x_coords = args.x_coords, y_coords = args.y_coords, z_coords = args.z_coords)
 
     print('\noutput successfully saved to ' + args.out_path + '\n')
 
