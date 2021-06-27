@@ -24,7 +24,7 @@ def main():
         default = 1,
         help = "optional. specify speed of switching between files in frames per second. (Default: 1)",
         required = False)
-    parser.add_argument("-x", "--x_coords",
+    parser.add_argument("-x", "--x_slices",
         nargs = '*',
         action = 'append',
         #default = [[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50]],
@@ -32,7 +32,7 @@ def main():
         type = int,
         help = "optional. specify coordinates to display in the x-direction. (Default: -50 -40 -30 -20 -10 0 10 20 30 40 50)",
         required = False)
-    parser.add_argument("-y", "--y_coords",
+    parser.add_argument("-y", "--y_slices",
         nargs = '*',
         action = 'append',
         #default = [[-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]],
@@ -40,7 +40,7 @@ def main():
         default = None,
         help = "optional. specify coordinates to display in the y-direction. (Default: -60 -50-40 -30 -20 -10 0 10 20 30 40 50 60)",
         required = False)
-    parser.add_argument("-z", "--z_coords",
+    parser.add_argument("-z", "--z_slices",
         nargs = '*',
         action = 'append',
         #default = [[-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]],
@@ -54,18 +54,18 @@ def main():
     if args.titles != None:
         args.titles = args.titles[0]
 
-    if args.x_coords == None:
-        args.x_coords = [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50]
+    if args.x_slices == None:
+        args.x_slices = [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50]
     else:
-        args.x_coords = args.x_coords[0]
-    if args.y_coords == None:
-        args.y_coords = [-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]
+        args.x_slices = args.x_slices[0]
+    if args.y_slices == None:
+        args.y_slices = [-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]
     else:
-        args.y_coords = args.y_coords[0]
-    if args.z_coords == None:
-        args.z_coords = [-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]
+        args.y_slices = args.y_slices[0]
+    if args.z_slices == None:
+        args.z_slices = [-60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60]
     else:
-        args.z_coords = args.z_coords[0]
+        args.z_slices = args.z_slices[0]
 
     #print(args.z_coords)
 
