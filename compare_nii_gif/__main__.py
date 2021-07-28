@@ -76,7 +76,7 @@ def main():
         else:
             print(str(i + 1) + '. ' + args.titles[i] + ': ' + args.in_paths[i])
 
-    core.compare_nii_gif(paths = args.in_paths, out_path = args.out_path, titles = args.titles, frames_per_sec = args.frames_per_sec, x_coords = args.x_coords, y_coords = args.y_coords, z_coords = args.z_coords)
+    core.compare_nii_gif(paths = args.in_paths, out_path = args.out_path, titles = args.titles, frames_per_sec = args.frames_per_sec, x_coords = args.x_slices, y_coords = args.y_slices, z_coords = args.z_slices)
 
     print('\noutput successfully saved to ' + args.out_path + '\n')
 
